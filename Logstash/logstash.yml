@@ -1,0 +1,30 @@
+# Configurações básicas do Logstash
+# habilite o Host e a porta para o Logstash caso esteja rodando em um servidor 
+#http.host: "0.0.0.0"
+#http.port: 9600
+
+# Configurações de pipeline
+config.reload.automatic: true
+config.reload.interval: 5s
+pipeline.workers: 2
+pipeline.batch.size: 125
+pipeline.batch.delay: 50
+
+# Queuing Settings
+queue.type: persisted
+queue.max_bytes: 4gb
+queue.checkpoint.writes: 1024
+
+
+# Configurações de caminhos
+path.data: /var/lib/logstash
+path.logs: /var/log/logstash
+
+
+
+# Configuração de pipeline (opcional - pode ser definido em arquivos separados)
+# pipeline.default: main
+
+# Modo de execução (opcional)
+# queue.type: persisted
+# path.queue: /var/lib/logstash/queue
